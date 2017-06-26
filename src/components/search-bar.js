@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
+  // All Class based Components have a constructor
+  constructor(props) {
+    // This ic for the React.Component constructor
+    super(props);
+
+    // This initializes state with any properties and values needed
+    this.state = { term: '' };
+  }
+
+  // This function isn't needed because we're using ES6 simple arrow function on the input
   handleInputChange(event) {
     console.log(event.target.value);
   }
 
   render() {
     return (
-      <input onChange={event => console.log(event.target.value)} type="text"/>
+      <div>
+        <input onChange={event => this.setState({term: event.target.value})} type="text"/>
+      </div>
     );
   }
 }
