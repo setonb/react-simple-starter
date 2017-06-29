@@ -11,8 +11,9 @@ class SearchBar extends Component {
   }
 
   // This function isn't needed because we're using ES6 simple arrow function on the input
-  handleInputChange(event) {
-    console.log(event.target.value);
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term);
   }
 
   render() {
@@ -20,7 +21,7 @@ class SearchBar extends Component {
       <div className="search-bar">
         <input
           value={this.state.term}
-          onChange={event => this.setState({term: event.target.value})}
+          onChange={event => this.onInputChange(event.target.value)}
           type="text"
         />
       </div>
